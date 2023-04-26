@@ -6,17 +6,31 @@
 Revolve is a light-weight library for building applications with a robust and composable architecture. It is a Redux-based and leverages the power of the Combine framework to streamline your app's state management and UI development. Designed specifically for SwiftUI, Revolve makes creating efficient, maintainable, and enjoyable applications easier than ever.
 
 * [What is Revolve?](#what-is-revolve)
-* [Learn more](#learn-more)
+* [Installation](#installation)
 * [Examples](#examples)
 * [Basic usage](#basic-usage)
 * [Documentation](#documentation)
-* [Community](#community)
-* [Installation](#installation)
-* [Translations](#translations)
 
 ## What is Revolve?
 
 Revolve is a modern architecture library for SwiftUI apps, which leverages Redux and Combine to manage your app's state, actions, and side effects. The library enables you to build clean and maintainable applications, making it easier to test, scale, and reason about your code.
+
+## Features
+
+- 📦 Swift Package Manager support
+- 🔗 Composable reducers and state
+- 💪 Type-safe actions using enums
+- 🧪 Easily testable with CombineSchedulers
+
+## Installation
+
+### Swift Package Manager
+
+Add the following dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/Handasatic/Revolve.git", from: "1.0.0")
+```
 
 ## Examples
 
