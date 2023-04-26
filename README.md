@@ -43,61 +43,92 @@ We provide several examples of how to use Revolve in different scenarios:
 
 Here's a quick example to get you started with Revolve:
 
+### Defining State
+
+Create a struct conforming to `Revolve.State` to define your app's state. This struct should contain all the necessary properties to represent your app's current state.
+
 ```swift
-import SwiftUI
-import Revolve
-
-// 1. Define your app state
-struct AppState {
-    var counter: Int = 0
+struct AppState: Revolve.State {
+    var user: UserState
+    var settings: SettingsState
 }
 
-// 2. Define your app actions
-enum AppAction {
-    case increment
-    case decrement
+struct UserState: Revolve.State {
+    var name: String
+    var age: Int
 }
 
-// 3. Implement the reducer
-let appReducer = Reducer<AppState, AppAction> { state, action in
+struct SettingsState: Revolve.State {
+    var notificationsEnabled: Bool
+    var darkModeEnabled: Bool
+}
+```
+
+### Defining Actions
+
+Define an enum conforming to Revolve.Action to represent the different actions that can be performed in your app. For a more organized codebase, you can group actions by the state they affect.
+
+```swift
+eenum AppAction: Revolve.Action {
+    case user(UserAction)
+    case settings(SettingsAction)
+}
+
+enum UserAction: Revolve.Action {
+    case setName(String)
+    case setAge(Int)
+}
+
+enum SettingsAction: Revolve.Action {
+    case setNotificationsEnabled(Bool)
+    case setDarkModeEnabled(Bool)
+}
+```
+
+### Defining Reducers
+
+Create a reducer function that takes the current state and an action as its arguments and returns an updated state. To handle state composition, you can create separate reducers for each state struct and use a top-level reducer to delegate actions to their respective reducers.
+
+```swift
+let appReducer: Reducer<AppState, AppAction> = { state, action in
     switch action {
-    case .increment:
-        state.counter += 1
-    case .decrement:
-        state.counter -= 1
+    case let .user(userAction):
+        userReducer(state: &state.user, action: userAction)
+    case let .settings(settingsAction):
+        settingsReducer(state: &state.settings, action: settingsAction)
     }
 }
 
-// 4. Create the store
-let store = Store(initialState: AppState(), reducer: appReducer)
-
-// 5. Use the store in your SwiftUI views
-struct ContentView: View {
-    @ObservedObject var store: Store<AppState, AppAction>
-
-    var body: some View {
-        VStack {
-            Text("Counter: \(store.state.counter)")
-            Button("Increment") {
-                store.send(.increment)
-            }
-            Button("Decrement") {
-                store.send(.decrement)
-            }
-        }
+let userReducer: Reducer<UserState, UserAction> = { state, action in
+    switch action {
+    case let .setName(name):
+        state.name = name
+    case let .setAge(age):
+        state.age = age
     }
 }
 
-// 6. Provide the store to your SwiftUI app
-@main
-struct MyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView(store: store)
-        }
+let settingsReducer: Reducer<SettingsState, SettingsAction> = { state, action in
+    switch action {
+    case let .setNotificationsEnabled(enabled):
+        state.notificationsEnabled = enabled
+    case let .setDarkModeEnabled(enabled):
+        state.darkModeEnabled = enabled
     }
 }
 ```
 
+### Creating a StateStore
 
+Instantiate a StateStore with the initial state, reducer, and a scheduler.
+
+```swift
+let store = StateStore(initialState: AppState(user: UserState(name: "", age: 0), 
+                                              settings: SettingsState(notificationsEnabled: true, 
+                                                                      darkModeEnabled: false)), 
+                                    reducer: appReducer, 
+                                    scheduler: DispatchQueue.main.eraseToAnyScheduler())
+
+```
+Then, inject the StateStore into your SwiftUI views.
 
