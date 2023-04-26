@@ -1,11 +1,9 @@
-# Revolve
+# Revolve ↻
 
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/Revolve/workflows/CI/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/Revolve/actions?query=workflow%3ACI)
-[![Slack](https://img.shields.io/badge/slack-chat-informational.svg?label=Slack&logo=slack)](https://www.YOUR_SLACK_INVITE_LINK.com)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FYOUR_GITHUB_USERNAME%2FRevolve%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/YOUR_GITHUB_USERNAME/Revolve)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FYOUR_GITHUB_USERNAME%2FRevolve%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/YOUR_GITHUB_USERNAME/Revolve)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FHandasatic%2FRevolve%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Handasatic/Revolve)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FHandasatic%2FRevolve%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/Handasatic/Revolve)
 
-Revolve is a SwiftUI library for building applications with a robust and composable architecture. It is designed to work seamlessly with SwiftUI, Combine, and the Redux-like pattern to make your app's state management and UI development straightforward and enjoyable.
+Revolve is a light-weight library for building applications with a robust and composable architecture. It is a Redux-based and leverages the power of the Combine framework to streamline your app's state management and UI development. Designed specifically for SwiftUI, Revolve makes creating efficient, maintainable, and enjoyable applications easier than ever.
 
 * [What is Revolve?](#what-is-revolve)
 * [Learn more](#learn-more)
@@ -19,10 +17,6 @@ Revolve is a SwiftUI library for building applications with a robust and composa
 ## What is Revolve?
 
 Revolve is a modern architecture library for SwiftUI apps, which leverages Redux and Combine to manage your app's state, actions, and side effects. The library enables you to build clean and maintainable applications, making it easier to test, scale, and reason about your code.
-
-## Learn more
-
-To learn more about Revolve and how to use it, check out our [extensive documentation](https://github.com/YOUR_GITHUB_USERNAME/Revolve/wiki).
 
 ## Examples
 
