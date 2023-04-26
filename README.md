@@ -34,10 +34,10 @@ Add the following dependency to your `Package.swift`:
 
 ## Examples
 
-We provide several examples of how to use Revolve in different scenarios:
+We provide a simple example of how to use Revolve:
 
-* [Basic Example](https://github.com/YOUR_GITHUB_USERNAME/Revolve/tree/main/Examples/BasicExample) - A simple example demonstrating the core concepts of Revolve.
-* [Advanced Example](https://github.com/YOUR_GITHUB_USERNAME/Revolve/tree/main/Examples/AdvancedExample) - A more complex example, showcasing how to handle advanced use cases and app features with Revolve.
+* [Basic Example](https://github.com/Handasatic/Revolve/tree/main/Examples/ConverterExample) - A simple example demonstrating the core concepts of Revolve.
+*  Advanced Example - Coming soon
 
 ## Basic usage
 
