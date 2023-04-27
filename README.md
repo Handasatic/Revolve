@@ -10,7 +10,7 @@ Revolve is a light-weight library for building applications with a robust and co
 * [Examples](#examples)
 * [Infrastructure](#infrastructure)
 * [Basic usage](#basic-usage)
-* [Documentation](#documentation)
+* [Acknowledgements](#acknowledgements)
 
 ## What is Revolve?
 
@@ -155,3 +155,10 @@ let store = StateStore(initialState: AppState(user: UserState(name: "", age: 0),
 ```
 Then, inject the StateStore into your SwiftUI views.
 
+## Acknowledgements
+
+This library was created with the help of and inspiration from the following resources:
+
+- [Defunctionalization](https://www.objc.io/blog/2019/09/10/defunctionalization/)
+- [Architecture](https://talk.objc.io/collections/architecture)
+- [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture)
