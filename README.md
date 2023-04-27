@@ -8,7 +8,7 @@ Revolve is a light-weight library for building applications with a robust and co
 * [What is Revolve?](#what-is-revolve)
 * [Installation](#installation)
 * [Examples](#examples)
-* [Infrastructure] (#infrastructure)
+* [Infrastructure](#infrastructure)
 * [Basic usage](#basic-usage)
 * [Documentation](#documentation)
 
