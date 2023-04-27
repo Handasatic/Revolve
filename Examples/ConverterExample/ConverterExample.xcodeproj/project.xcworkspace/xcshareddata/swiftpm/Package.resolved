@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Handasatic/Revolve.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "8111485c744c36386ada8a97dcbc4340bd455098"
+        "revision" : "eb2044453c13dcd083c2136f8cec787e837fbbf2",
+        "version" : "1.0.1"
       }
     },
     {

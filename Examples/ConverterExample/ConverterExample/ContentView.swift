@@ -13,21 +13,6 @@ struct ContentView: View {
 
 	@ObservedObject var store: StateStore<AppState, AppAction>
 
-	private var amountBinding: Binding<Double> {
-		Binding(
-			get: { store.state.amount },
-			set: { newAmount in store.send(.updateAmount(newAmount)) }
-		)
-	}
-
-	private var baseCurrencyBinding: Binding<String> {
-		Binding(
-			get: { store.state.baseCurrency },
-			set: { newBaseCurrency in store.send(.updateBaseCurrency(newBaseCurrency)) }
-		)
-	}
-
-
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 20) {
@@ -35,7 +20,11 @@ struct ContentView: View {
 					Text("Amount")
 						.font(.headline)
 
-					TextField("Amount", value: amountBinding, formatter: NumberFormatter())
+					TextField("Amount",
+										value: store.binding(for: \.amount,
+																				 send: { newAmount in
+						.updateAmount(newAmount)}),
+										formatter: NumberFormatter())
 						.keyboardType(.decimalPad)
 						.padding()
 						.background(Color(.systemGray6))
@@ -51,7 +40,9 @@ struct ContentView: View {
 					HStack {
 						Text("Base Currency")
 							.font(.headline)
-						Picker("Base Currency", selection: baseCurrencyBinding) {
+						Picker("Base Currency",
+									 selection: store.binding(for: \.baseCurrency,
+																						send: {.updateBaseCurrency($0)})) {
 							ForEach(supportedCurrencies, id: \.self) { currency in
 								Text(currency).tag(currency)
 							}
