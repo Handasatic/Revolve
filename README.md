@@ -8,6 +8,7 @@ Revolve is a light-weight library for building applications with a robust and co
 * [What is Revolve?](#what-is-revolve)
 * [Installation](#installation)
 * [Examples](#examples)
+* [Infrastructure] (#infrastructure)
 * [Basic usage](#basic-usage)
 * [Documentation](#documentation)
 
@@ -38,6 +39,28 @@ We provide a simple example of how to use Revolve:
 
 * [Basic Example](https://github.com/Handasatic/Revolve/tree/main/Examples/ConverterExample) - A simple example demonstrating the core concepts of Revolve.
 *  Advanced Example - Coming soon
+
+## Infrastructure
+### Reducers
+A `Reducer` in Revolve is a pure function that takes an inout state and an action and applies the action to the state. It has the following signature:
+```swift
+public typealias Reducer<State: Revolve.State, Action: Revolve.Action> = (inout State, Action) -> Void
+```
+
+### Combine
+Revolve provides a `combine` function that allows you to combine multiple reducers into a single reducer. This ensures you can easily compose reducers that handle different parts of the state:
+
+```swift
+public func combine<State, Action>(
+    reducers: Reducer<State, Action>...
+) -> Reducer<State, Action> where State: Revolve.State, Action: Revolve.Action {
+    return { state, action in
+        for reducer in reducers {
+            reducer(&state, action)
+        }
+    }
+}
+```
 
 ## Basic usage
 
